@@ -9,7 +9,7 @@ COMMON = [21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 3306, 3389, 5432, 6379, 80
 
 def check(host, port, timeout=0.5):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.settimeout(timeout)
+        s.settimeout(timeout)  # 0.5s is plenty on a lan
         return port if s.connect_ex((host, port)) == 0 else None
 
 
